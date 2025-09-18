@@ -1,0 +1,11 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+
+        list1=nums1[:m]
+        list2=nums2[:n]
+        tot_li=list1+list2
+        final=sorted(tot_li)
+        print(final)
+        for i in range(m+n):
+            nums1[i]=final[i]
+        print(nums1)

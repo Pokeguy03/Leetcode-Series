@@ -1,0 +1,19 @@
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        if not nums:
+            return nums
+        arr=[]
+        for i in nums:
+            if i!=0:
+                arr.append(i)
+        count=0
+        for i in nums:
+            if i==0:
+                count+=1
+        arr.extend([0]*count)
+        for i in range(len(nums)):
+            nums[i]=arr[i]
+        return nums
+
+        
+        

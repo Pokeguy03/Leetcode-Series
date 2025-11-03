@@ -1,0 +1,13 @@
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        perm=[[]]
+        for i in nums:
+            new_perm=[]
+            for j in perm:
+                for k in range(len(j)+1):
+                    p_copy=j.copy()
+                    p_copy.insert(k,i)
+                    new_perm.append(p_copy)
+            perm=new_perm
+        return perm
+        

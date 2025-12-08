@@ -1,0 +1,31 @@
+#My Approach
+class Solution:
+    def toHex(self, num: int) -> str: 
+        if num==0:
+            return "0"
+        if num<0:
+            num+=2**32
+            return str(hex(num))[2:]
+        return str(hex(num))[2:]
+
+
+
+class Solution:
+    def toHex(self, num: int) -> str:
+        # Edge case
+        if num == 0:
+            return "0"
+
+        hex_chars = "0123456789abcdef"
+        result = ""
+
+        # Convert negative numbers using two’s complement (32-bit)
+        if num < 0:
+            num += 2**32
+
+        while num > 0:
+            digit = num & 15          # same as num % 16
+            result = hex_chars[digit] + result
+            num >>= 4                 # same as num // 16
+
+        return result

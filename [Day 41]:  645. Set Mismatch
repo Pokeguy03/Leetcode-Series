@@ -1,0 +1,36 @@
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        n=len(nums)
+        count=Counter(nums)
+        
+        for i in range(1,n+1):
+            if count[i]==2:
+                dupl=i
+            if i not in nums:
+                miss=i
+        return [dupl,miss]
+
+
+
+# from collections import Counter
+# from typing import List
+# class Solution:
+#     def findErrorNums(self, nums: List[int]) -> List[int]:
+#         n = len(nums)
+#         count = Counter(nums)
+#         fin = []
+
+#         for i in range(1, n + 1):
+#             if count[i] == 2:
+#                 fin.append(i)   # duplicate
+#             if count[i] == 0:
+#                 fin.append(i)   # missing
+#         return fin
+
+
+# class Solution:
+#     def findErrorNums(self, nums: List[int]) -> List[int]:
+#         n = len(nums)
+#         dup = sum(nums) - sum(set(nums))
+#         miss = n*(n+1)//2 - sum(set(nums))
+#         return [dup, miss]

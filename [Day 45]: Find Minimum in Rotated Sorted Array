@@ -1,0 +1,24 @@
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        left=0
+        right=len(nums)-1
+        mini=float('inf')
+        while left <= right:
+            mid=(left+right)//2
+            if nums[mid]>=nums[left]:
+                mini=min(nums[left],mini)
+                left=mid+1
+            else:
+                mini=min(nums[mid],mini)
+                right=mid-1
+        return mini
+
+
+ # Formula:
+ # if nums[mid]>=nums[left]:
+ #   mini=min(nums[left],mini)
+ #   left=mid+1
+ # else:
+ #   mini=min(nums[mid],mini)
+ #   right=mid-1
+ 

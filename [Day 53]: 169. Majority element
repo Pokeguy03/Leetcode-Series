@@ -1,0 +1,11 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        
+        b=Counter(nums)
+        m=0
+        val=0
+        for i in nums:
+            if b[i]>m:
+                m=b[i]
+                val=i
+        return val

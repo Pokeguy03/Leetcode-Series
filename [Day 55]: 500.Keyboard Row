@@ -1,0 +1,22 @@
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        row1=set("qwertyuiopQWERTYUIOP")
+        row2=set("asdfghjklASDFGHJKL")
+        row3=set("zxcvbnmZXCVBNM")
+        li=[]
+        for i in words:
+            if i[0] in row1:
+                row=row1
+            if i[0] in row2:
+                row=row2
+            if i[0] in row3:
+                row=row3
+            Valid=True
+            for letter in i:
+                if letter not in row:
+                    Valid=False
+                    break
+            if Valid:
+                li.append(i)
+        return li
+        

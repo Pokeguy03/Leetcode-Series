@@ -1,0 +1,13 @@
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        count=Counter(arr1)
+        li=[]
+        for i in arr2:
+            li.extend([i]*count[i])
+            del count[i]
+        for i in sorted(count.elements()):
+            li.append(i)
+        return li
+
+
+        

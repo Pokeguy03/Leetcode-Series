@@ -1,0 +1,14 @@
+from collections import Counter
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        string="balloon"
+        my_inp=Counter(string)
+        inp=Counter(text)
+        
+        ans=float("inf")
+        for i in my_inp:
+            ans=min(ans,inp[i]//my_inp[i])
+        return ans
+
+
+        

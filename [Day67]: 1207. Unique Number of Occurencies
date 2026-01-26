@@ -1,0 +1,14 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        count=Counter(arr)
+        res=[]
+        for key,value in count.items():
+            res.append(value)
+        
+        sett=set(res)
+        return len(res)==len(sett)
+
+        
+
+
+        

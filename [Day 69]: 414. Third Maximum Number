@@ -1,0 +1,18 @@
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        first=second=third=float("-inf")
+        nums=set(nums)
+        for i in nums:
+            if i>first:
+                third=second
+                second=first
+                first=i
+            elif i>second and i!=first:
+                third=second
+                second=i
+            elif i>third and i!=first and i!=second:
+                third=i
+            
+
+        return first if len(nums)<3 else third
+

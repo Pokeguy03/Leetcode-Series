@@ -1,0 +1,14 @@
+class Solution:
+    def multiply(self, num1: str, num2: str) -> str:
+        nums1=0
+        nums2=0
+        for i in num1:
+            digit1=ord(i)-ord("0")
+            nums1=nums1*10+digit1
+
+        for j in num2:
+            digit2=ord(j)-ord("0")
+            nums2=nums2*10+digit2
+        return str(nums1*nums2)
+
+        

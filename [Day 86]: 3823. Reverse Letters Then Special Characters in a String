@@ -1,0 +1,31 @@
+class Solution:
+    def reverseByType(self, s: str) -> str:
+        s=list(s)
+        left=0
+        right=len(s)-1
+        while left<right:
+            if s[left].isalpha() and s[right].isalpha():
+                s[left],s[right]=s[right],s[left]
+                right-=1
+                left+=1
+            elif not s[left].isalpha():
+                left+=1
+            elif not s[right].isalpha():
+                right-=1
+        left1=0
+        right1=len(s)-1
+
+        while left1<right1:
+            if not s[left1].isalpha() and not s[right1].isalpha():
+                s[left1],s[right1]=s[right1],s[left1]
+                right1-=1
+                left1+=1
+            elif s[left1].isalpha():
+                left1+=1
+            elif s[right1].isalpha():
+                right1-=1
+        return "".join(s)
+
+
+
+        

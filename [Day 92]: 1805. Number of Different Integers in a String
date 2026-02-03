@@ -1,0 +1,17 @@
+class Solution:
+    def numDifferentIntegers(self, word: str) -> int:
+        word=list(word)
+        for i in range(len(word)):
+            if word[i].isalpha():
+                word[i] =' '
+        a="".join(word)
+        nums=a.split()
+        li=[]
+        for i in nums:
+            li.append(int(i))
+        fi_li=set(li)
+        return len(fi_li)
+        
+
+
+        

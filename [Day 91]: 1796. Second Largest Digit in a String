@@ -1,0 +1,25 @@
+class Solution:
+    def secondHighest(self, s: str) -> int:
+        li=[]
+        for i in s:
+            if i.isdigit():
+                li.append(int(i))
+
+        unique=(set(li))
+        first=second=float("-inf")
+        
+
+        for i in unique:
+            if i>first:
+                second=first
+                first=i
+            elif i>second and first!=i:
+                second=i
+        if first==float(-inf) or second==float(-inf):
+            return -1
+        else:
+            return second
+
+
+
+        

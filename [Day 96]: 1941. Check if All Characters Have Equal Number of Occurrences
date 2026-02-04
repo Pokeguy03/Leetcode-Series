@@ -1,0 +1,9 @@
+class Solution:
+    def areOccurrencesEqual(self, s: str) -> bool:
+        count=Counter(s)
+        value=count.values()
+        if (len(set(value))==1):
+            return True
+        else:
+            return False
+

@@ -1,0 +1,15 @@
+class Solution:
+    def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
+        li=text.split()
+        count=0
+        for i in li:
+            flag=True
+            for ch in i:
+                if ch in brokenLetters:
+                    flag=False
+                    break
+            if flag:
+                count+=1
+        return count
+
+        

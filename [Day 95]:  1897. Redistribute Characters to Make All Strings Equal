@@ -1,0 +1,8 @@
+class Solution:
+    def makeEqual(self, words: List[str]) -> bool:
+        joint="".join(words)
+        count=Counter(joint)
+        
+        n=len(words)
+        return all(v%n==0 for v in count.values())
+        

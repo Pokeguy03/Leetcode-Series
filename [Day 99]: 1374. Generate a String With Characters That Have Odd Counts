@@ -1,0 +1,11 @@
+class Solution:
+    def generateTheString(self, n: int) -> str:
+        string=""
+        if n%2==0:
+            string="a"*(n-1)+"b"
+        else:
+            string="a"*n
+        return string
+            
+
+        

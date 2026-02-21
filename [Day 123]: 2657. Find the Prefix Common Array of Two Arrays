@@ -1,0 +1,16 @@
+class Solution:
+    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+        i=0
+        j=0
+        res=[]
+        while i<len(A):
+            if i>=0 and j>=0:
+                l1=A[:i+1]
+                l2=B[:j+1]
+                fi=len(set(l1) & set(l2))
+                res.append(fi)
+                i+=1
+                j+=1
+        return res
+
+        

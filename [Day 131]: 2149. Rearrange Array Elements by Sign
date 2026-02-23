@@ -1,0 +1,22 @@
+class Solution:
+    def rearrangeArray(self, nums: List[int]) -> List[int]:
+        pos=[]
+        neg=[]
+        for i in nums:
+            if i >0:
+                pos.append(i)
+            else:
+                neg.append(i)
+        pos.extend(neg)
+        print(pos)
+        fi=[]
+        i=0
+        j=len(neg)
+        while j<len(pos):
+            fi.append(pos[i])
+            fi.append(pos[j])
+            i+=1
+            j+=1
+        return fi
+            
+        

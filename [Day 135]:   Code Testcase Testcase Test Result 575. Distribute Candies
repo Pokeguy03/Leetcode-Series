@@ -1,0 +1,5 @@
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        length=len(candyType)//2
+        unique=len(set(candyType))
+        return length if unique>length else unique

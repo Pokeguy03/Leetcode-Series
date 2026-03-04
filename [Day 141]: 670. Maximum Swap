@@ -1,0 +1,20 @@
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+       
+        maxi=num
+        new=list(str(num))
+        i=0
+        while i<len(new):
+            j=i+1
+        
+            while j<len(new):
+                new[i],new[j]=new[j],new[i]
+                val=int("".join(new))
+                maxi=max(val,maxi)
+                new[i],new[j]=new[j],new[i]
+                j+=1
+            i+=1
+        return maxi
+            
+
+        

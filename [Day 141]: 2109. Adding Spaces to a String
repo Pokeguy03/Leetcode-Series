@@ -1,0 +1,18 @@
+class Solution:
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        s=list(s)
+        i=0
+        j=0
+        li=[]
+        while i<len(spaces):
+            
+            mew=(s[j:spaces[i]])
+            li.append("".join(mew))
+            j=spaces[i]
+            i+=1
+            
+        k=spaces[-1]
+        mew_l=s[k:]
+        li.append("".join(mew_l))
+        print(li)
+        return " ".join(li)

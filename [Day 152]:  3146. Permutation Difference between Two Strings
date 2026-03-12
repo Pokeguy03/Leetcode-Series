@@ -1,0 +1,12 @@
+class Solution:
+    def findPermutationDifference(self, s: str, t: str) -> int:
+        dic1 = {}
+
+        for i, ch in enumerate(s):
+            dic1[ch] = i
+
+        su = 0
+        for i, ch in enumerate(t):
+            su += abs(dic1[ch] - i)
+
+        return su

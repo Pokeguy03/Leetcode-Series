@@ -1,0 +1,17 @@
+class Solution:
+    def maxFreqSum(self, s: str) -> int:
+        vowels=['a','e','i','o','u']
+        vow=[]
+        conso=[]
+        for i in s:
+            if i in vowels:
+                vow.append(i)
+            else:
+                conso.append(i)
+        count_v=Counter(vow)
+        count_c=Counter(conso)
+        maxi_v=max(count_v.values(),default=0)
+        maxi_c=max(count_c.values(),default=0)
+        return maxi_v+maxi_c
+
+        

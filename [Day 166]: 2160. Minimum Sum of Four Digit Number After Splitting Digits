@@ -1,0 +1,13 @@
+class Solution:
+    def minimumSum(self, num: int) -> int:
+        nums=list(str(num))
+        nums.sort()
+        left=""
+        right=""
+        for i in range(len(nums)):
+            if i%2==0:
+                right=right+nums[i]
+            else:
+                left=left+nums[i]
+        return int(right)+int(left)
+        

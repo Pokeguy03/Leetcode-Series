@@ -1,0 +1,17 @@
+class Solution:
+    def findMissingElements(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        small=nums[0]
+        large=nums[-1]
+        print(small)
+        print(large)
+      
+        li=[]
+        for i in range(small,large+1):
+            if i not in nums:
+                li.append(i)
+        return li 
+
+         
+
+        

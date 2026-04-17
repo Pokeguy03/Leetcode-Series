@@ -1,0 +1,34 @@
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        from collections import defaultdict
+        
+        left = 0
+        n = len(s)
+        minLen = float('inf')
+        start = -1
+        
+        freq = defaultdict(int)
+        for ch in t:
+            freq[ch] += 1
+        
+        count = len(freq)
+        
+        for right in range(n):
+            ch = s[right]
+            freq[ch] -= 1
+            
+            if freq[ch] == 0:
+                count -= 1
+            
+            while count == 0:
+                if (right - left + 1) < minLen:
+                    start = left
+                    minLen = right - left + 1
+                
+                freq[s[left]] += 1
+                if freq[s[left]] == 1:
+                    count += 1
+                
+                left += 1
+        
+        return "" if minLen == float('inf') else s[start:start + minLen]

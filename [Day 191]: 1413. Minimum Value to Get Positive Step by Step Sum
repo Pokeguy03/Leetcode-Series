@@ -1,0 +1,10 @@
+class Solution:
+    def minStartValue(self, nums: List[int]) -> int:
+        li=[]
+        count=0
+        for i in nums:
+            count+=i
+            li.append(count)
+        li.sort()
+        return max(1,1-(li[0]))
+

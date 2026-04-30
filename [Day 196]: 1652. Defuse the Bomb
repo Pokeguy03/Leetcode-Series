@@ -1,0 +1,33 @@
+class Solution:
+    def decrypt(self, code: List[int], k: int) -> List[int]:
+        li=[]
+        if k>0:
+            for i in range(len(code)):
+                ct=0
+                j=i+1
+                for l in range(k):
+                    if j>len(code)-1:
+                       j=0 
+                    ct+=code[j]
+                    j+=1
+                li.append(ct)
+                
+        elif k<0:
+            for i in range(len(code)):
+                ct=0
+                j=i-1
+                for l in range(abs(k)):
+                    if j<0:
+                       j=len(code)-1
+                    ct+=code[j]
+                    j-=1
+                li.append(ct)
+        else:
+            if k==0:
+                return len(code)*[0]
+        return li
+            
+
+
+
+        

@@ -1,0 +1,20 @@
+class Solution:
+    def maxRepeating(self, sequence: str, word: str) -> int:
+        m=len(sequence)
+        n=len(word)
+        count=0
+
+        for i in range(m-n+1):
+            ct=0
+            for j in range(i,m-n+1,n):
+                if sequence[j:j+n]==word:
+                    ct+=1
+                else:
+                    break
+            print(ct,i)
+            count=max(ct,count)
+        return count
+                    
+
+    
+            

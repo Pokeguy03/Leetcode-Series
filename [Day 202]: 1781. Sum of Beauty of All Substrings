@@ -1,0 +1,13 @@
+class Solution:
+    def beautySum(self, s: str) -> int:
+        result=[]
+        for i in range(len(s)):
+            for j in range(i+1,len(s)):
+                res=s[i:j+1]
+                if len(set(res))>1:
+                    dic=Counter(res)
+                    mini=min(dic.values())
+                    maxi=max(dic.values())
+                    result.append(maxi-mini)
+        return sum(result)
+        

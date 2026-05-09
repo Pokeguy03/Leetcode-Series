@@ -1,0 +1,17 @@
+class Solution:
+    def getLucky(self, s: str, k: int) -> int:
+        str1=[]
+        for i in s:
+            str1.append(ord(i)-ord('a')+1)
+
+        joint= "".join(map(str,str1))
+        
+        temp=int(joint)
+        for i in range(k):
+            summ=0
+            while temp>0:
+                temp1=temp%10
+                summ+=temp1
+                temp=temp//10
+            temp=summ
+        return summ

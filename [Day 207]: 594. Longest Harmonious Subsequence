@@ -1,0 +1,14 @@
+class Solution:
+    def findLHS(self, nums: List[int]) -> int:
+        count=Counter(nums)
+        ct=0
+        keys = (sorted(count.keys()))
+       
+
+        for i in range(len(keys)-1):
+            if abs(keys[i]-keys[i+1])==1:
+                ct=max(ct,count[keys[i]]+count[keys[i+1]])
+        return ct
+
+
+

@@ -1,0 +1,10 @@
+class Solution:
+    def isGood(self, nums: List[int]) -> bool:
+        maxi=max(nums)
+        n=len(nums)
+        if maxi+1!=n:
+            return False
+        expect=list(range(1,maxi+1))
+        expect.append(maxi)
+        nums.sort()
+        return nums==expect

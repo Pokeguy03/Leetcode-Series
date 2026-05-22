@@ -1,0 +1,13 @@
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        new_h=sorted(heights)
+        print(new_h)
+        ct=0
+        i=0
+        while i<len(heights):
+            if heights[i]==new_h[i]:
+                i+=1
+            else:
+                ct+=1
+                i+=1
+        return ct

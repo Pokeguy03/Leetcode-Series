@@ -1,0 +1,23 @@
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        n=len(p)
+        p=sorted(p)
+        res=[]
+        l=0
+        r=len(p)
+        while l<=r:
+            s1=sorted(s[l:r])
+            if p==s1:
+                res.append(l)
+                l+=1
+                r+=1
+            else:
+                l+=1
+                r+=1
+        return res
+
+
+
+
+        
+

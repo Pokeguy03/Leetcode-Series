@@ -1,0 +1,47 @@
+#Top Down (Done by me)
+class Solution:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        m=len(grid)
+        n=len(grid[0])
+        memo=[[-1]* n for _ in range(m)]
+        def path(m,n):
+            if m==0 and n==0:
+                return grid[m][n]
+            if m<0 or n<0:
+                return float("inf")
+            if memo[m][n]!=-1:
+                return memo[m][n]
+            up=grid[m][n]+path(m-1,n)
+            left=grid[m][n]+path(m,n-1)
+            memo[m][n]=min(up,left)
+            return memo[m][n]
+        return path(m-1,n-1)        
+
+#Bottom-Up
+# class Solution:
+#     def minPathSum(self, grid: List[List[int]]) -> int:
+
+#         m = len(grid)
+#         n = len(grid[0])
+
+#         dp = [[0] * n for _ in range(m)]
+
+#         for i in range(m):
+#             for j in range(n):
+
+#                 if i == 0 and j == 0:
+#                     dp[i][j] = grid[i][j]
+
+#                 else:
+#                     up = float("inf")
+#                     left = float("inf")
+
+#                     if i > 0:
+#                         up = dp[i - 1][j]
+
+#                     if j > 0:
+#                         left = dp[i][j - 1]
+
+#                     dp[i][j] = grid[i][j] + min(up, left)
+
+#         return dp[m - 1][n - 1]

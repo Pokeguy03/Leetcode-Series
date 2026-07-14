@@ -1,0 +1,21 @@
+class Solution:
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+#Recursion Memoization:
+#Top-Down
+        m=len(obstacleGrid)
+        n=len(obstacleGrid[0])
+        memo = [[-1] * n for _ in range(m)]
+        def dp(m,n):
+            if obstacleGrid[m][n]==1:
+                return 0
+            if m==0 and n==0:
+                return 1
+            if m<0 or n<0:
+                return 0
+            if memo[m][n]!=-1:
+                return memo[m][n]
+            up=dp(m-1,n)
+            down=dp(m,n-1)
+            memo[m][n]=up+down
+            return memo[m][n]
+        return dp(m-1,n-1)

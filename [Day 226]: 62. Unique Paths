@@ -1,0 +1,30 @@
+# TLC Recursion
+# class Solution:
+#     def uniquePaths(self, m: int, n: int) -> int:
+#         def dp(m,n):
+#             if m==0 and n==0:
+#                 return 1
+#             if m<0 or n<0:
+#                 return 0
+#             up=dp(m-1,n)
+#             down=dp(m,n-1)
+#             summ=up+down
+#             return summ
+#         return dp(m-1,n-1)
+
+#Recursion Memoization:
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        memo = [[-1] * n for _ in range(m)]
+        def dp(m,n):
+            if m==0 and n==0:
+                return 1
+            if m<0 or n<0:
+                return 0
+            if memo[m][n]!=-1:
+                return memo[m][n]
+            up=dp(m-1,n)
+            down=dp(m,n-1)
+            memo[m][n]=up+down
+            return memo[m][n]
+        return dp(m-1,n-1)

@@ -1,0 +1,33 @@
+class Solution:
+    def canPartition(self, arr: List[int]) -> bool:
+        arr1=sum(arr)
+        if arr1%2!=0:
+            return False
+        else:
+            target=arr1//2
+
+        n = len(arr)
+
+        memo = [[-1] * (target + 1) for _ in range(n)]
+
+        def solve(i, target):
+
+            if target == 0:
+                return True
+
+            if i == 0:
+                return arr[0] == target
+
+            if memo[i][target] != -1:
+                return memo[i][target]
+
+            not_take = solve(i - 1, target)
+
+            take = False
+            if arr[i] <= target:
+                take = solve(i - 1, target - arr[i])
+
+            memo[i][target] = take or not_take
+            return memo[i][target]
+
+        return solve(n - 1, target)  

@@ -1,0 +1,21 @@
+class Solution:
+    def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+        n=len(matrix)
+        memo=[[None]* n for _ in range(n)]
+        def minfall(i,j):
+            if j<0 or j>=n:
+                return float('inf')
+            if i==0:
+                return matrix[0][j]
+            if memo[i][j] is not None:
+                return memo[i][j]
+            st=matrix[i][j]+minfall(i-1,j)
+            ld=matrix[i][j]+minfall(i-1,j-1)
+            rd=matrix[i][j]+minfall(i-1,j+1)
+            memo[i][j]=min(st,ld,rd)
+            return memo[i][j]
+        ans=float("inf")
+        for j in range(n):
+            ans=min(ans,minfall(n-1,j))
+        return ans
+    

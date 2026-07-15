@@ -1,0 +1,15 @@
+class Solution:
+    def digitFrequencyScore(self, n: int) -> int:
+        n=str(n)
+        num=set(n)
+        dic={}
+        for i in n:
+            if i not in dic:
+                dic[i]=1
+            else:
+                dic[i]+=1
+        summ=0
+        for i in num:
+            summ+=(int(i)*dic[i])
+        return summ
+

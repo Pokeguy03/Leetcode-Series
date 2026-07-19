@@ -1,0 +1,21 @@
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        n=len(coins)
+        memo=[[None]*(amount+1) for i in range(n)]
+        def coin(ind,target):
+            if ind==0:
+                if target % coins[0]==0:
+                    return 1
+                else:
+                    return 0
+            if memo[ind][target] is not None:
+                return memo[ind][target]
+            not_pick=coin(ind-1,target)
+            pick=0
+            if coins[ind]<=target:
+                pick=coin(ind,target-coins[ind])
+            memo[ind][target]=not_pick+pick
+            return memo[ind][target]
+        return coin(n-1,amount)
+            
+        

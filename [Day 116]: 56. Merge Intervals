@@ -1,3 +1,18 @@
+#Method 1
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort()
+        ans=[intervals[0]]
+        for inte in intervals[1:]:
+            start=inte[0]
+            end=inte[1]
+            if (start <= ans[-1][1]):
+                ans[-1][1]=max(end,ans[-1][1])
+            else:
+                ans.append([start,end])
+        return ans
+
+#Method 2
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort()

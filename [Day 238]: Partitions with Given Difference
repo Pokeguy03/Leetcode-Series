@@ -1,0 +1,27 @@
+class Solution:
+    def countPartitions(self, arr, diff):
+        total=sum(arr)
+        target=(total-diff)//2
+	    n=len(arr)
+	    if (total-diff)<0:
+                return 0
+        if (total-diff)%2!=0:
+                return 0
+	    memo=[[None]* (target+1)  for _ in range(n) ]
+	    def count(ind,tar):
+            if ind == 0:
+                if tar == 0 and arr[0] == 0:
+                    return 2
+                if tar == 0 or arr[0] == tar:
+                    return 1
+                return 0
+	        if memo[ind][tar] is not None:
+	            return memo[ind][tar]
+	        not_pick=count(ind-1,tar)
+	        pick=0
+	        if arr[ind]<=tar:
+	            pick=count(ind-1,tar-arr[ind])
+	        memo[ind][tar]=not_pick+pick
+	        return memo[ind][tar]
+	    return count(n-1,target) 
+        

@@ -1,0 +1,21 @@
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        left=0
+        hashmap={}
+        max_freq=0
+        res=0
+        for right in range(len(s)):
+            #Put the each character into Hashmap
+            if s[right] not in hashmap:
+                hashmap[s[right]]=1
+            else:
+                hashmap[s[right]]+=1
+            #To find Maximum Frequency
+            max_freq=max(max_freq,hashmap[s[right]])
+            #Main Condition
+            while (right-left+1)-max_freq>k:
+                hashmap[s[left]]-=1
+                left+=1
+            #To find maximum length 
+            res=max(res,right-left+1)
+        return res

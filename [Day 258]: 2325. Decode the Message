@@ -1,0 +1,19 @@
+class Solution:
+    def decodeMessage(self, key: str, message: str) -> str:
+        str1=""
+        for i in key:
+            if i!=" " and i not in str1:
+                str1+=i
+        dic={}
+        alph=97
+        for ch in str1:
+            dic[ch]=chr(alph)
+            alph+=1
+        str2=""
+        for j in message:
+            if j!=" ":
+                str2+=dic[j]
+            else:
+                str2+=" "
+        return str2
+        

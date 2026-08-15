@@ -1,0 +1,7 @@
+class Solution:
+    def kItemsWithMaximumSum(self, numOnes: int, numZeros: int, numNegOnes: int, k: int) -> int:
+        whole=[1]*numOnes
+        whole.extend([0]*numZeros)
+        whole.extend([-1]*numNegOnes)
+        return sum(whole[:k])
+        

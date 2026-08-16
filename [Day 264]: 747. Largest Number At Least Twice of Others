@@ -1,0 +1,15 @@
+class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        first=float("-inf")
+        second=float("-inf")
+        for i in nums:
+            if i>first:
+                second=first
+                first=i
+            elif i>second and i!=first:
+                second=i
+        if first >= 2*second:
+            return nums.index(first)
+        else:
+            return -1
+            

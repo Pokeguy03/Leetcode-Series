@@ -1,0 +1,14 @@
+from collections import defaultdict
+class Solution:
+    def largestInteger(self, nums: List[int], k: int) -> int:
+        count=defaultdict(int)
+        for i in range(len(nums)-k+1):
+            ch=set(nums[i:i+k])
+            for j in ch:
+                count[j]+=1
+        res=-1
+        for i,v in count.items():
+            if v==1:
+                res=max(i,res)
+        return res
+        

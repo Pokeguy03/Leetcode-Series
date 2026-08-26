@@ -1,0 +1,21 @@
+class Solution:
+    def interpret(self, command: str) -> str:
+        dic={'G':'G','()':'o','(al)':'al'}
+        res=""
+        l=0
+        while l<len(command):
+            
+            if command[l]=='('and command[l+1]==')':
+                res+=dic['()']
+                l+=2
+            elif command[l]=="(" and command[l+1]=='a':
+              
+                res+=dic['(al)']
+                l+=4
+            else:
+                if command[l]=='G':
+                    res+=dic['G']
+                    l+=1
+        return res
+
+        

@@ -1,0 +1,18 @@
+class Solution:
+    def firstStableIndex(self, nums: list[int], k: int) -> int:
+        maxi=float("-inf")
+        mini=float("inf")
+    
+        for i in range(len(nums)):
+            ma=max(nums[:i+1])
+            mi=min(nums[i:])
+          
+            ans=ma-mi
+            if ans <= k:
+                return i
+                break
+        return -1
+
+
+
+        

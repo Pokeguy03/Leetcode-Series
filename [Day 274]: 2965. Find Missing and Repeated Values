@@ -1,0 +1,25 @@
+class Solution:
+    def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
+        res=[]
+        for i in grid:
+            for j in i:
+                res.append(j)
+        
+        res1=sorted(res)
+        print(res1)
+        m=0
+        for i in range(len(res1)):
+            if i+1 not in res1:
+                m=i+1
+                break
+        s=set()
+        r=0
+        for i in res1:
+            if i in s:
+                r=i
+                break
+            s.add(i)
+            
+        return [r,m]
+
+

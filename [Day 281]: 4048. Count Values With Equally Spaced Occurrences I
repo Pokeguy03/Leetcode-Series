@@ -1,0 +1,14 @@
+class Solution:
+    def countSpecialIntegers(self, nums: list[int]) -> int:
+        count=Counter(nums)
+        res=defaultdict(list)
+ 
+        for i,v in enumerate(nums):
+            if count[v]==3:
+                res[v].append(i)
+        ct=0
+        for i in res.values():
+            a=i
+            if a[1]-a[0] == a[2]-a[1]:
+                ct += 1
+        return ct

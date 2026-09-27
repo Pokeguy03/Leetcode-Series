@@ -1,0 +1,20 @@
+class Solution:
+    def evaluate(self, s: str, knowledge: list[list[str]]) -> str:
+        count={}
+        for i in knowledge:
+            count[i[0]]=i[1]
+        brack=[]
+        for i in range(len(s)):
+            if s[i] in ["(",")"]:
+                brack.append(i)
+        print(brack)
+        for j in range(len(brack)-2,-1,-2):
+            st=brack[j]
+            en=brack[j+1]
+            if s[st+1:en] in count:
+                val=count[s[st+1:en]]
+            else:
+                val="?"
+            s=s[:st]+val+s[en+1:]
+        return s
+

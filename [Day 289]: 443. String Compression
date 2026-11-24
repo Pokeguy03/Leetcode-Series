@@ -1,0 +1,26 @@
+class Solution:
+    def compress(self, chars: list[str]) -> int:
+        idx=0
+        ct=0
+        i=0
+        j=0
+        while j<len(chars):
+            if chars[i]==chars[j]:
+                ct+=1
+                j+=1
+            else:
+                chars[idx]=chars[i]
+                idx+=1
+                if ct>1:
+                    for k in str(ct):
+                        chars[idx]=k
+                        idx+=1 
+                i=j
+                ct=0
+        chars[idx] = chars[i]
+        idx += 1
+        if ct > 1:
+            for k in str(ct):
+                chars[idx] = k
+                idx += 1
+        return idx
